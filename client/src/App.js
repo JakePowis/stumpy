@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
 
-
-
 function App() {
 
   const [shortUrl, setShortUrl] = useState("")
