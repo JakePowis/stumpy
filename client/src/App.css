@@ -1,6 +1,7 @@
 .App{
 
   height: 100vh;
+ 
 }
 
 .urlForm {
@@ -76,7 +77,7 @@ h1 {
   border: none;
   text-align: center;
   cursor: pointer;
-  max-height: fit-content;
+  width: 400px;
 }
 
 .textA:hover {
