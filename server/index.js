@@ -3,6 +3,7 @@ const connectDB = require('./config/db');
 const cors = require('cors');
 const path = require('path')
 const config = require('config');
+var favicon = require('serve-favicon')
 
 
 const app = express();
@@ -16,6 +17,8 @@ app.use(express.json());
 // Define Routes
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
+
+app.use(favicon(__dirname + '../client/public/favicon.ico'));
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
