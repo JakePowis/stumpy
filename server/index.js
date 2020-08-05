@@ -18,12 +18,13 @@ app.use(express.json());
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
 
-app.use(favicon(__dirname + '/../client/public/favicon.ico'));
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
     app.use(express.static('../client/build'));
+
+    app.use(favicon(__dirname + '/../client/public/favicon.ico'));
 
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'));

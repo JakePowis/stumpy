@@ -76,6 +76,7 @@ h1 {
   border: none;
   text-align: center;
   cursor: pointer;
+  max-height: fit-content;
 }
 
 .textA:hover {
