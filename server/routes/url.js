@@ -11,7 +11,7 @@ const Url = require('../models/Url');
 router.post('/shorten', async (req, res) => {
   console.log("post long url route hit")
   const { longUrl } = req.body;
-  const baseUrl = config.get('BASE_URL');
+  const baseUrl = process.env.BASE_URL || "http://localhost:5000"
 
   // Check base url
   if (!validUrl.isUri(baseUrl)) {
