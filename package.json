@@ -18,6 +18,7 @@
   },
   "proxy": "http://localhost:5000/",
   "dependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "concurrently": "^5.2.0"
   }
 }
