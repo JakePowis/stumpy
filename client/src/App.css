@@ -1,0 +1,84 @@
+.App{
+
+  height: 100vh;
+}
+
+.urlForm {
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+
+form {
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-height: 50px;
+
+}
+
+.inputBox {
+  width: 70%;
+  margin: 2% 2%;
+  border: black solid 2px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1%;
+}
+
+
+h1 {
+  text-align: center;
+  margin: 1% 0%
+}
+
+.subText {
+
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.btn {
+
+  border: black solid 3px;
+  min-width: 100px;;
+  width: 20%;
+  margin: auto;
+  
+
+}
+
+.btn:hover {
+
+  border:black solid 3px;
+  background-color:navy;
+
+ 
+}
+
+.results {
+
+  direction: flex;
+  flex-direction: column;
+
+}
+
+.copy {
+
+  width: 40px;;
+}
+
+
+.textA {
+
+  border: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.textA:hover {
+
+  cursor: pointer;
+}

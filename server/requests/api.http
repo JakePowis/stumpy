@@ -1,0 +1,6 @@
+POST http://localhost:5000/api/url/shorten
+Content-Type: application/json
+
+{
+  "longUrl": "https://undark.org/wp-content/uploads/2020/02/GettyImages-1199242002-1-scaled.jpg"
+}
