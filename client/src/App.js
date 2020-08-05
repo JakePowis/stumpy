@@ -22,7 +22,7 @@ function App() {
         setShortUrl("none")
         return
       }
-      const res = await fetch('http://localhost:5000/api/url/shorten', {
+      const res = await fetch(process.env.REACT_APP_API_URL + '/api/url/shorten', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

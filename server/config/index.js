@@ -5,5 +5,5 @@ dotenv.config();
 export default {
     PORT: process.env.PORT,
     MONGO_URI: process.env.MONGO_URI,
-    BASE_URL: process.env.BASE_URL
+    BASE_URL: process.env.BASE_URL,
 };
