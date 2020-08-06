@@ -33,7 +33,7 @@ function App() {
       );
       const parseData = await res.json()
       setShortUrl(parseData.shortUrl)
-      setServerMsg(parseData)
+      setServerMsg(parseData.msg)
       console.log("res", parseData)
     }
     catch (error) {
