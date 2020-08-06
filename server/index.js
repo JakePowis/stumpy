@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
     // Set static folder
     app.use(express.static('../client/build'));
 
-    app.use(favicon(__dirname + '/build/favicon.ico'));
+    app.use(favicon(__dirname + '/public/favicon.ico'));
 
 
     app.get('*', (req, res) => {
