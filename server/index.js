@@ -3,7 +3,7 @@ const connectDB = require('./config/db');
 const cors = require('cors');
 const path = require('path')
 const config = require('config');
-var favicon = require('serve-favicon')
+// var favicon = require('serve-favicon')
 
 
 const app = express();
@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
     // Set static folder
     app.use(express.static('../client/build'));
 
-    app.use(favicon(__dirname + '/public/favicon.ico'));
+    // app.use(favicon(__dirname + '/public/favicon.ico'));
 
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '..', 'client', 'build', 'index.html'));
