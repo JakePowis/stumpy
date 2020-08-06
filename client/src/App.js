@@ -7,6 +7,8 @@ function App() {
 
   const [longUrl, setLongUrl] = useState("")
 
+  const [serverMsg, setServerMsg] = useState("")
+
   const textAreaRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -31,6 +33,7 @@ function App() {
       );
       const parseData = await res.json()
       setShortUrl(parseData.shortUrl)
+      setServerMsg(parseData)
       console.log("res", parseData)
     }
     catch (error) {
@@ -84,7 +87,7 @@ function App() {
               <button className="btn btn-warning copy ml-1" onClick={clear}>Clear</button>
             </div>
           </div>
-          : null
+          : <div className="text-danger text-center my-3">{serverMsg}</div>
       }
 
     </div>
