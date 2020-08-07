@@ -19,7 +19,10 @@
     "concurrently": "^5.2.0"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "base64-img": "^1.0.4",
+    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
-    "concurrently": "^5.2.0"
+    "express-fileupload": "^1.1.10"
   }
 }

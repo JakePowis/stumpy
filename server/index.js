@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path')
 const config = require('config');
 var favicon = require('serve-favicon')
+const fileUpload = require('express-fileupload');
 
 
 const app = express();
@@ -13,6 +14,8 @@ connectDB();
 
 app.use(cors())
 app.use(express.json());
+
+app.use(fileUpload());
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 

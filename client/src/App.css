@@ -41,6 +41,15 @@ h1 {
   margin-bottom: 1%;
 }
 
+.modeChange {
+
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 1%;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .btn {
 
   border: black solid 3px;
@@ -84,3 +93,14 @@ h1 {
 
   cursor: pointer;
 }
+
+.fileUpload {
+
+  width: 70%;
+  margin: 2% 2%;
+  border: black solid 2px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0.3%;
+}
+

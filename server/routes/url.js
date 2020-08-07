@@ -3,8 +3,12 @@ const router = express.Router();
 const validUrl = require('valid-url');
 const shortid = require('shortid');
 const config = require('config');
+const fs = require('fs');
+var FileReader = require('filereader')
+
 
 const Url = require('../models/Url');
+const File = require('../models/File');
 
 // @route     POST /api/url/shorten
 // @desc      Create short URL
@@ -49,6 +53,41 @@ router.post('/shorten', async (req, res) => {
   } else {
     res.status(401).json({ 'msg': 'Invalid URL' });
   }
+});
+
+
+
+router.post('/upload', async (req, res) => {
+
+  const { base64 } = req.body;
+
+  try {
+    const image = base64
+
+    // Create url code
+    const baseUrl = process.env.BASE_URL || "http://localhost:5000"
+    const urlCode = "i" + shortid.generate();
+    const fileUrl = baseUrl + '/' + urlCode;
+
+    let file = new File({
+      urlCode,
+      fileUrl,
+      image,
+      date: new Date()
+    });
+
+    await file.save();
+
+    console.log("file added to db", urlCode)
+
+    res.json(file);
+
+  } catch (error) {
+    console.log("err is: ", error.message)
+    res.status(401).json({ 'msg': 'Image not uploaded' });
+  }
+
+
 });
 
 module.exports = router;
