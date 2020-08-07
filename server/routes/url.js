@@ -59,10 +59,12 @@ router.post('/shorten', async (req, res) => {
 
 router.post('/upload', async (req, res) => {
 
-  const { base64 } = req.body;
+  const { base } = req.body;
 
   try {
-    const image = base64
+    const image = base
+
+    console.log("image to add", image)
 
     // Create url code
     const baseUrl = process.env.BASE_URL || "http://localhost:5000"

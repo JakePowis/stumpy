@@ -36,30 +36,39 @@ export default function FILE_UPLOAD() {
 
             const reader = await new FileReader();
             reader.readAsDataURL(file);
-            reader.onload = function () {
+            reader.onload = async function () {
                 console.log("base64:", reader.result);
                 setBase64(reader.result)
+                let base = reader.result
+
+
+                const res = await fetch(process.env.REACT_APP_API_URL + '/api/url/upload', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ base }),
+                }
+                );
+                console.log("sent")
+
+                //once back, set fileUrl or error msg
+                const parseData = await res.json()
+
+                setFileUrl(parseData.fileUrl)
+
+                setServerMsg(parseData.msg)
+
+                // inputRef.current.src = "test"
+
+                console.log("res", parseData)
+
+
             };
 
-            const res = await fetch(process.env.REACT_APP_API_URL + '/api/url/upload', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ base64 }),
-            }
-            );
 
-            //once back, set fileUrl or error msg
-            const parseData = await res.json()
 
-            setFileUrl(parseData.fileUrl)
 
-            setServerMsg(parseData.msg)
-
-            // inputRef.current.src = "test"
-
-            console.log("res", parseData)
         }
         catch (error) {
             console.log(error.message)
