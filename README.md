@@ -10,3 +10,8 @@ Web utility site providing free &amp; simple Image Hosting &amp; Url Shortening 
 #### Example: Mobile view, URL shortening
 
 ![stump](https://i.ibb.co/ts9RGf4/stumpymobile2.png)
+
+
+
+
+<i>Note: Intial backend URL shortening code based on Traversey Media tutorial, all Frontend and Image Hosting elements created by @JakePowis</i>
