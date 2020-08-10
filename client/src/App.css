@@ -86,7 +86,8 @@ h1 {
   border: none;
   text-align: center;
   cursor: pointer;
-  width: 400px;
+  /* max-width: 400px; */
+  width: 100%;
 }
 
 .textA:hover {

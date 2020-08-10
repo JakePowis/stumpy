@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './App.css'
+import { css } from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const axios = require('axios');
 
@@ -23,6 +25,14 @@ export default function FILE_UPLOAD() {
 
     console.log("file:", file)
 
+    //spinner
+    const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: none;`;
+
+    // const style = { position: "fixed", top: "35%", left: "50%" };
+
 
 
     const handleSubmit = async (e) => {
@@ -33,6 +43,8 @@ export default function FILE_UPLOAD() {
                 setFile("none")
                 return
             }
+
+            setFileUrl("loading")
 
             const reader = await new FileReader();
             reader.readAsDataURL(file);
@@ -106,21 +118,29 @@ export default function FILE_UPLOAD() {
 
 
                 {fileUrl === "none" ? <div div className="text-center text-danger my-3">please select a file to host</div> :
-                    fileUrl ?
-                        <div className="text-center results">
-                            <div className="my-3">Your new stumpy URL:</div>
-                            <a href={fileUrl} target="blank"><textarea className="mt-3 text-primary textA" ref={textAreaRef} value={fileUrl}>{fileUrl}</textarea></a>
-                            <div>
-                                <a href={fileUrl} target="blank"> <img ref={previewRef} src={base64} className="mb-3" height="200" alt="Image preview..."></img></a>
-                            </div>
-                            <div className="mb-3">
-                                <button className="btn btn-primary copy" onClick={copyToClipboard}>Copy URL</button>
+                    fileUrl === "loading" ?
+                        <div className="text-center my-5">
+                            <ClipLoader
+                                css={override}
+                                size={40}
+                                color={"blue"}
+                            />
+                        </div> :
+                        fileUrl ?
+                            <div className="text-center results">
+                                <div className="my-3">Your new stumpy URL:</div>
+                                <a href={fileUrl} target="blank"><textarea className="mt-3 text-primary textA" ref={textAreaRef} value={fileUrl}>{fileUrl}</textarea></a>
+                                <div>
+                                    <a href={fileUrl} target="blank"> <img ref={previewRef} src={base64} className="mb-3" height="200" alt="Image preview..."></img></a>
+                                </div>
+                                <div className="mb-3">
+                                    <button className="btn btn-primary copy" onClick={copyToClipboard}>Copy URL</button>
 
 
-                                <button className="btn btn-warning copy ml-1" onClick={clear}>Clear</button>
+                                    <button className="btn btn-warning copy ml-1" onClick={clear}>Clear</button>
+                                </div>
                             </div>
-                        </div>
-                        : <div className="text-danger text-center my-3">{serverMsg}</div>
+                            : <div className="text-danger text-center my-3">{serverMsg}</div>
                 }
 
 
